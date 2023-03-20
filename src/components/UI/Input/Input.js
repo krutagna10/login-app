@@ -1,16 +1,16 @@
 import { useEffect, useRef } from "react";
 import Flex from "../../Layouts/Flex/Flex";
-import classes from "./Input.module.css";
+import "./Input.css";
 
 const Input = ({ id, label, isValid, value, onChange, type, ariaLabel }) => {
   return (
-    <div className={isValid === false ? classes.error : ""}>
+    <div className={isValid === false ? "error" : ""}>
       <Flex className="flex--justify-space flex--align-center">
-        <label className={classes["form__label"]} htmlFor={id}>
+        <label className="form__label" htmlFor={id}>
           {label}
         </label>
         {isValid === false && (
-          <span className={classes["form__error-message"]}>
+          <span className="form__error-message">
             {value.trim().length === 0
               ? `${label} cannot be empty`
               : `Enter a valid ${label}`}
@@ -18,7 +18,7 @@ const Input = ({ id, label, isValid, value, onChange, type, ariaLabel }) => {
         )}
       </Flex>
       <input
-        className={classes["form__input"]}
+        className="form__input"
         id={id}
         type={type}
         onChange={onChange}

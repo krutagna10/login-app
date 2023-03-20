@@ -1,55 +1,9 @@
-import { useState, useEffect, useReducer } from "react";
+import { useReducer, useContext } from "react";
+import { emailReducer, passwordReducer } from "./loginReducers";
+import LoginContext from "../../context/LoginContext";
 import Button from "../Button/Button";
 import Flex from "../Layouts/Flex/Flex";
 import "./Login.css";
-
-function emailReducer(email, action) {
-  switch (action.type) {
-    case "user-input": {
-      return {
-        ...email,
-        value: action.changedValue,
-        isValid: action.changedIsValid,
-      };
-    }
-
-    case "change-isValid": {
-      return { ...email, isValid: action.changedIsValid };
-    }
-
-    case "reset-email": {
-      return { ...email, value: "" };
-    }
-
-    default: {
-      throw new Error("Invalid action: " + action.type);
-    }
-  }
-}
-
-function passwordReducer(password, action) {
-  switch (action.type) {
-    case "user-input": {
-      return {
-        ...password,
-        value: action.changedValue,
-        isValid: action.changedIsValid,
-      };
-    }
-
-    case "change-isValid": {
-      return { ...password, isValid: action.changedIsValid };
-    }
-
-    case "reset-password": {
-      return { ...password, value: "" };
-    }
-
-    default: {
-      throw new Error("Invalid action " + action.type);
-    }
-  }
-}
 
 const validateEmail = (inputEmail) => {
   // Returns true if email is valid and false if it is not valid
@@ -57,7 +11,9 @@ const validateEmail = (inputEmail) => {
   return inputEmail.match(mailFormat) ? true : false;
 };
 
-const Login = ({ onLogin }) => {
+const Login = () => {
+  const { onLogin } = useContext(LoginContext);
+
   const [email, emailDispatch] = useReducer(emailReducer, {
     value: "",
     isValid: null,

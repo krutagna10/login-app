@@ -5,8 +5,8 @@ import Flex from "../Layouts/Flex/Flex";
 import { useContext, useState } from "react";
 import LoginContext from "../../context/LoginContext";
 
-const Header = ({ onLogout }) => {
-  const { isLoggedIn } = useContext(LoginContext);
+const Header = () => {
+  const { isLoggedIn, onLogout } = useContext(LoginContext);
   const [navOpen, setNavOpen] = useState(false);
 
   const handleClick = () => {

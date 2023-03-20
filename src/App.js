@@ -31,14 +31,8 @@ function App() {
         onLogout: handleLogout,
       }}
     >
-      <Header onLogout={handleLogout} />
-      <main>
-        {isLoggedIn ? (
-          <Home onLogin={handleLogin} />
-        ) : (
-          <Login onLogin={handleLogin} />
-        )}
-      </main>
+      <Header />
+      <main>{isLoggedIn ? <Home /> : <Login />}</main>
     </LoginContext.Provider>
   );
 }

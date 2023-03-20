@@ -1,6 +1,6 @@
 import { useReducer, useContext } from "react";
 import { emailReducer, passwordReducer } from "./loginReducers";
-import LoginContext from "../../context/LoginContext";
+import { LoginContext } from "../../context/LoginContext";
 import Button from "../Button/Button";
 import Flex from "../Layouts/Flex/Flex";
 import "./Login.css";

@@ -3,7 +3,7 @@ import HeaderNav from "./HeaderNav";
 import Button from "../Button/Button";
 import Flex from "../Layouts/Flex/Flex";
 import { useContext, useState } from "react";
-import LoginContext from "../../context/LoginContext";
+import { LoginContext } from "../../context/LoginContext";
 
 const Header = () => {
   const { isLoggedIn, onLogout } = useContext(LoginContext);

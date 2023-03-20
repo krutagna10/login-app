@@ -3,12 +3,6 @@ import Flex from "../../Layouts/Flex/Flex";
 import classes from "./Input.module.css";
 
 const Input = ({ id, label, isValid, value, onChange, type, ariaLabel }) => {
-  const inputRef = useRef();
-
-  useEffect(() => {
-    console.log(inputRef.current.focus());
-  }, []);
-
   return (
     <div className={isValid === false ? classes.error : ""}>
       <Flex className="flex--justify-space flex--align-center">
@@ -26,7 +20,6 @@ const Input = ({ id, label, isValid, value, onChange, type, ariaLabel }) => {
       <input
         className={classes["form__input"]}
         id={id}
-        ref={inputRef}
         type={type}
         onChange={onChange}
         value={value}

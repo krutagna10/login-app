@@ -1,0 +1,37 @@
+.form-wrapper {
+  padding-block: 3rem;
+}
+
+.form {
+  padding: 3rem;
+  display: grid;
+  gap: 2rem;
+  max-width: 36rem;
+  margin-inline: auto;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  border-radius: 0.5rem;
+}
+
+.form__label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.form__error-message {
+  color: red;
+  font-size: 0.875rem;
+}
+
+.form__input {
+  width: 100%;
+  padding: 0.15rem 0.5rem;
+}
+
+.form__input:focus {
+  outline: 1px solid blue;
+}
+
+.error .form__input {
+  border: 1px solid red;
+}

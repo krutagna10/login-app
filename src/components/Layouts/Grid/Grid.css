@@ -1,0 +1,15 @@
+.grid {
+    display: grid;
+}
+
+.grid--gap {
+    gap: var(--gap);
+}
+
+.grid--content-center {
+    place-content: center;
+}
+
+.grid--items-center {
+    place-items: center
+}

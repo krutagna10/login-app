@@ -13,6 +13,11 @@
 - useReducer
 - useContext
 
+### Notes
+- Always add everything you reducer to inside useEffect() as a dependency!
+- Only call React Hooks in React Functions
+- Only call React Hooks at the Top Level of the component, do not call them in nested functions or any block statements
+
 ### Built with
 
 - React

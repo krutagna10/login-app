@@ -1,9 +1,9 @@
-import "./Button.css";
+import classes from "./Button.module.css";
 
 const Button = ({ className, children, onClick, type }) => {
   return (
     <button
-      className={`btn ${className}`}
+      className={`${classes.btn} ${classes["btn--blue"]} ${className}`}
       onClick={onClick}
       type={type === "submit" ? "submit" : "button"}
     >

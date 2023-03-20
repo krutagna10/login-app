@@ -13,6 +13,6 @@
   color: var(--white);
 }
 
-.btn:disabled {
-  opacity: 0.5;
+.btn--blue:hover {
+  background-color: var(--very-dark-blue);
 }

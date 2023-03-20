@@ -1,9 +1,9 @@
 import { useReducer, useContext } from "react";
 import { emailReducer, passwordReducer } from "./loginReducers";
 import { LoginContext } from "../../context/LoginContext";
-import Button from "../Button/Button";
-import Flex from "../Layouts/Flex/Flex";
-import "./Login.css";
+import Input from "../UI/Input/Input";
+import Button from "../UI/Button/Button";
+import classes from "./Login.module.css";
 
 const validateEmail = (inputEmail) => {
   // Returns true if email is valid and false if it is not valid
@@ -62,70 +62,26 @@ const Login = () => {
   };
 
   return (
-    <div className="form-wrapper">
-      <form className="form" onSubmit={handleSubmit}>
-        <div
-          className={`form__input-wrapper ${
-            email.isValid === false ? "error" : ""
-          }`}
-        >
-          <Flex className="flex--justify-space flex--align-center">
-            <label className="form__label" htmlFor="form__input-email">
-              Email
-            </label>
-            {email.isValid === false && (
-              <span
-                className="form__error-message"
-                id="form__error-message--password"
-              >
-                {email.value.trim().length === 0
-                  ? "Email cannot be empty"
-                  : "Enter a valid email"}
-              </span>
-            )}
-          </Flex>
-          <input
-            className="form__input"
-            id="form__input-email"
-            type="email"
-            onChange={handleEmailChange}
-            value={email.value}
-            aria-label="Email address"
-            aria-describedby="form__error-message--email"
-          />
-        </div>
-
-        <div
-          className={`form__input-wrapper ${
-            password.isValid === false ? "error" : ""
-          }`}
-        >
-          <Flex className="flex--justify-space flex--align-center">
-            <label className="form__label" htmlFor="form__input-password">
-              Password
-            </label>
-            {password.isValid === false && (
-              <span
-                className="form__error-message"
-                id="form__error-message--password"
-              >
-                {password.value.trim().length === 0
-                  ? "Password cannot be empty"
-                  : "Password length should be greater than equal to 8"}
-              </span>
-            )}
-          </Flex>
-          <input
-            className="form__input"
-            id="form__input-password"
-            type="password"
-            aria-label="Password"
-            value={password.value}
-            aria-describedby="form__error-message--password"
-            onChange={handlePasswordChange}
-          />
-        </div>
-
+    <div className={classes["form-wrapper"]}>
+      <form className={classes.form} onSubmit={handleSubmit}>
+        <Input
+          id="form__input--email"
+          type="email"
+          label="Email"
+          isValid={email.isValid}
+          value={email.value}
+          onChange={handleEmailChange}
+          ariaLabel="Email Address"
+        />
+        <Input
+          id="form__input-password"
+          type="password"
+          label="Password"
+          isValid={password.isValid}
+          value={password.value}
+          onChange={handlePasswordChange}
+          ariaLabel="Password"
+        />
         <Button type="submit" className="btn--blue">
           Login
         </Button>
